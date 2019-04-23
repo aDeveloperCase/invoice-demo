@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add invoice details{% endblock %}
+{% block body_title %}
+	Add invoice details - 
+	<a href="/invoice">Index</a> /
+	<a href="/invoice/{{ invoiceId }}/edit">Edit all</a>
+{% endblock %}
+
+{% block body %}
+	{{ form(form) }}
+{% endblock %}

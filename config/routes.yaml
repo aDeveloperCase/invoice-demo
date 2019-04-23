@@ -1,6 +1,36 @@
 # This file is the entry point to configure your own HTTP routes.
 # Files in the routes/ subdirectory configure the routes for your dependencies.
 
-#index:
-#    path: /
-#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+index:
+    path: /
+    defaults: { _controller: 'App\Controller\WelcomeController::index' }
+
+index_invoice:
+    path: /invoice
+    defaults: { _controller: 'App\Controller\InvoiceController::index' }
+create_invoice:
+    path: /invoice/new
+    defaults: { _controller: 'App\Controller\InvoiceController::new' }
+edit_invoice:
+    path: /invoice/{invoiceId}/edit
+    defaults: { _controller: 'App\Controller\InvoiceController::edit' }
+delete_invoice:
+    path: /invoice/{invoiceId}/delete
+    defaults: { _controller: 'App\Controller\InvoiceController::delete' }
+
+create_invoice_detail:
+    path: /invoice-detail/new
+    defaults: { _controller: 'App\Controller\InvoiceDetailController::new' }
+
+index_client:
+    path: /client
+    defaults: { _controller: 'App\Controller\ClientController::index' }
+create_client:
+    path: /client/new
+    defaults: { _controller: 'App\Controller\ClientController::new' }
+edit_client:
+    path: /client/{clientId}/edit
+    defaults: { _controller: 'App\Controller\ClientController::edit' }
+delete_client:
+    path: /client/{clientId}/delete
+    defaults: { _controller: 'App\Controller\ClientController::delete' }

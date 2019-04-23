@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Invoices index{% endblock %}
+{% block body_title %}Invoices index - <a href="/" >Home</a>{% endblock %}
+
+{% block body %}
+	<div class="section">{{ form(searchBox) }}</div>
+	<div class="items-container section">
+		<a href="/invoice/new" class="item">
+			<i class="fas fa-plus is-aligned-vertically"></i>
+		</a>
+	{% for invoice in invoices %}
+		<article class="item">
+	      <div class="is-size-6 has-text-weight-bold">{{ invoice.client.firstName }} {{ invoice.client.lastName }}</div>
+	      <div class="is-size-6 has-text-weight-semibold has-text-right">
+	      	{{ invoice.invoiceDate | date('d/m/Y') }}<br>
+	      	Invoice number: {{ invoice.invoiceNumber }}
+	      </div>
+		  <div class="tile-body">
+		  	{% if invoice.invoiceDetail %}
+			    <div class="tile-text">
+			    	<i>Description:</i>
+			    	<p>{{ invoice.invoiceDetail.description }}</p>
+			    	<div><i>Quantity:</i> {{ invoice.invoiceDetail.quantity }}</div>
+			    	<div><i>Amount:</i> {{ invoice.invoiceDetail.amount|number_format(2, '.', ',') }}</div>
+			    	<div><i>VAT amount:</i> {{ invoice.invoiceDetail.VATAmount|number_format(2, '.', ',') }}</div>
+			    	<div><i>Total amount plus VAT:</i> {{ invoice.invoiceDetail.totalAmountAndVAT|number_format(2, '.', ',') }}</div>
+			    </div>
+		    {% endif %}
+		    <div class="is-pulled-right">
+		    	<a href="/invoice/{{ invoice.id }}/delete" class="button is-danger">Delete</a>
+		    	{% if invoice.invoiceDetail %}
+		    		<a href="/invoice/{{ invoice.id }}/edit" class="button">Edit</a>
+		    	{% else %}
+		    		<a href="/invoice-detail/new?invoiceId={{ invoice.id }}" class="button">Complete</a>
+		    	{% endif %}
+		    </div>
+		  </div>
+		</article>
+	{% endfor %}
+	</div>
+{% endblock %}

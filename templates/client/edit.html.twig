@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit client{% endblock %}
+{% block body_title %}Edit client - <a href="/client" >Index</a>{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+		<div class="has-text-danger">{{ form_errors(form) }}</div>
+
+		<div class="row">{{ form_row(form.firstName) }}</div>
+		<div class="row">{{ form_row(form.lastName) }}</div>
+		<div class="row">{{ form_row(form.save, {'label': 'Save changes'}) }}</div>
+	{{ form_end(form) }}
+{% endblock %}

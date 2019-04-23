@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit invoice{% endblock %}
+{% block body_title %}Edit invoice - <a href="/invoice">Index</a>{% endblock %}
+
+{% block body %}
+	<div class="invoice-form">
+		{{ form_start(invoiceForm) }}
+			<div class="has-text-danger">{{ form_errors(invoiceForm) }}</div>
+
+			<div class="row">{{ form_row(invoiceForm.invoiceDate) }}</div>
+			<div class="row">{{ form_row(invoiceForm.invoiceNumber) }}</div>
+			<div class="row">{{ form_row(invoiceForm.client) }}</div>
+			<div class="row">{{ form_row(invoiceForm.save, {'label': 'Save changes'}) }}</div>
+		{{ form_end(invoiceForm) }}
+	</div>
+	<div class="invoice-detail-form">
+		{{ form_start(invoiceDetailForm) }}
+			<div class="has-text-danger">{{ form_errors(invoiceDetailForm) }}</div>
+
+			<div class="row">{{ form_row(invoiceDetailForm.invoiceId) }}</div>
+			<div class="row">{{ form_row(invoiceDetailForm.description) }}</div>
+			<div class="row">{{ form_row(invoiceDetailForm.quantity) }}</div>
+			<div class="row">{{ form_row(invoiceDetailForm.amount) }}</div>
+			<div class="row">{{ form_row(invoiceDetailForm.VATAmount) }}</div>
+			<div class="row">{{ form_row(invoiceDetailForm.totalAmountAndVAT) }}</div>
+			<div class="row">{{ form_row(invoiceDetailForm.save, {'label': 'Save changes'}) }}</div>
+		{{ form_end(invoiceDetailForm) }}
+	</div>
+{% endblock %}

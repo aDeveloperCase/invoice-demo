@@ -1,0 +1,53 @@
+$screen-md: 400px;
+$screen-lg: 980px;
+$screen-xl: 1100px;
+$screen-xxl: 1300px;
+
+.items-container {
+	display: inline-block;
+	.item {
+		width: 180px;
+		float: left;
+		margin: 5px;
+		position: relative;
+		&:first-child {
+			width: 180px;
+			min-height: 276px;
+			border: 2px dashed lightgray;
+			i {
+				color: lightgray;
+			}
+		}
+		&:first-child:hover {
+			border-color: gray;
+			cursor: pointer;
+			i {
+				color: gray;
+			}
+		}
+	}
+}
+
+.is-aligned-vertically {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+@media (max-width: 400px) {
+	.items-container {
+	  .item, .item:first-of-type {
+	    width: 100%;
+	  }
+	}
+}
+
+.control.date-widget .control {
+	display: inline-block;
+}
+
+.section {
+	padding: 0.1rem 0;
+}

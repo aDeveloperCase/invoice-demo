@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients index{% endblock %}
+{% block body_title %}Clients index - <a href="/" >Home</a>{% endblock %}
+
+{% block body %}
+	<div>
+		<div class="section">
+			{{ form_start(form) }}
+				<div class="my-custom-class-for-errors">
+			        {{ form_errors(form) }}
+			    </div>
+
+			    <div class="columns">
+			    	<div class="column">{{ form_row(form.firstName) }}</div>
+			    	<div class="column">{{ form_row(form.lastName) }}</div>
+			    	<div class="column">{{ form_row(form.save) }}</div>
+			    </div>
+			{{ form_end(form) }}
+		</div>
+		<div class="section">{{ form(searchBox) }}</div>
+		<div class="section">
+			{% for client in clients %}
+				<article class="row columns">
+					<div class="column">{{client.firstName}}</div>
+					<div class="column">{{client.lastName}}</div>
+					<div class="column">
+						<a href="/client/{{client.id}}/edit" class="button">Edit</a>
+						<a href="/client/{{client.id}}/delete" class="button is-danger">Delete</a>
+					</div>
+				</article>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
