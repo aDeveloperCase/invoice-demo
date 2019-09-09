@@ -4,5 +4,6 @@
 - set database info in .env.local file
 - `yarn` to install node modules
 - `yarn encore dev --watch` for the assets
+- `composer install` to install composer dependencies
 - `php bin/console doctrine:schema:create` to create the database schema
 - `php bin/console server:run` to start the server
